@@ -1,0 +1,79 @@
+// Architectures
+SDKROOT = macosx10.8
+ARCHS = $(ARCHS_STANDARD_32_64_BIT)
+VALID_ARCHS = x86_64 i386
+
+
+// Build Locations
+SYMROOT                                 = $(PROJECT_DIR)/Build
+OBJROOT                                 = $(PROJECT_DIR)/Build/Intermediates
+CONFIGURATION_BUILD_DIR                 = $(PROJECT_DIR)/Build/$(CONFIGURATION)
+CONFIGURATION_TEMP_DIR                  = $(PROJECT_DIR)/Build/$(CONFIGURATION)/Immediates
+
+
+// Packaging
+PRODUCT_NAME                            = $(TARGET_NAME)
+
+// Deployment
+COPY_PHASE_STRIP_Debug                  = NO
+COPY_PHASE_STRIP_Release                = YES
+COPY_PHASE_STRIP                        = $(COPY_PHASE_STRIP_$(CONFIGURATION))
+
+// Linking
+OTHER_LDFLAGS                           = -lGLTools
+
+// Search paths
+ALWAYS_SEARCH_USER_PATHS                = NO
+FRAMEWORK_SEARCH_PATHS                  = $(inherited)
+HEADER_SEARCH_PATHS                     = $(inherited) $(GL_TOOLS_LOCATION)/include
+LIBRARY_SEARCH_PATHS                    = $(inherited) $(GL_TOOLS_LOCATION)/lib
+
+
+// Code Generation
+GCC_OPTIMIZATION_LEVEL_Debug            = 0
+GCC_OPTIMIZATION_LEVEL_Release          = 2
+GCC_OPTIMIZATION_LEVEL                  = $(GCC_OPTIMIZATION_LEVEL_$(CONFIGURATION))
+
+
+// Language
+GCC_C_LANGUAGE_STANDARD                 = c11
+
+
+// Language - C++
+CLANG_CXX_LANGUAGE_STANDARD             = c++0x
+CLANG_CXX_LIBRARY                       = libc++
+
+
+// Language - Modules
+CLANG_ENABLE_MODULES                    = YES
+
+
+// Language - Objective C
+CLANG_ENABLE_OBJC_ARC                   = NO
+
+
+// Preprocessing
+ENABLE_NS_ASSERTIONS_Debug              = YES
+ENABLE_NS_ASSERTIONS_Release            = No
+ENABLE_NS_ASSERTIONS                    = $(ENABLE_NS_ASSERTIONS_$(CONFIGURATION))
+
+GCC_PREPROCESSOR_DEFINITIONS_Debug      = DEBUG=1
+GCC_PREPROCESSOR_DEFINITIONS_Release    =
+GCC_PREPROCESSOR_DEFINITIONS            = $(GCC_PREPROCESSOR_DEFINITIONS_$(CONFIGURATION))
+
+
+// Warnings
+CLANG_WARN_EMPTY_BODY                   = YES
+CLANG_WARN_BOOL_CONVERSION              = YES
+CLANG_WARN_CONSTANT_CONVERSION          = YES
+GCC_WARN_64_TO_32_BIT_CONVERSION        = NO
+CLANG_WARN_ENUM_CONVERSION              = YES
+CLANG_WARN_INT_CONVERSION               = YES
+GCC_WARN_CHECK_SWITCH_STATEMENTS        = NO
+
+
+
+// Warnings - Objective C
+CLANG_WARN__DUPLICATE_METHOD_MATCH      = YES
+GCC_WARN_UNDECLARED_SELECTOR            = YES
+CLANG_WARN_OBJC_ROOT_CLASS              = YES

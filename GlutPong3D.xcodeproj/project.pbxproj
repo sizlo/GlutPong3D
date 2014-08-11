@@ -1,0 +1,236 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		22099DDC19953213000961B3 /* Room.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22099DDA19953213000961B3 /* Room.cpp */; };
+		2219C2E919606ECA003FA82E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2219C2E819606ECA003FA82E /* Cocoa.framework */; };
+		2219C31F19606F38003FA82E /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2219C31D19606F38003FA82E /* Game.cpp */; };
+		2219C35B196073F9003FA82E /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2219C359196073F9003FA82E /* GLUT.framework */; };
+		2219C35C196073F9003FA82E /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2219C35A196073F9003FA82E /* OpenGL.framework */; };
+		2282942F1998D90900C45ADC /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2282942D1998D90900C45ADC /* Player.cpp */; };
+		22E68E401994F353005D9A1A /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22E68E3E1994F353005D9A1A /* Ball.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		22099DDA19953213000961B3 /* Room.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Room.cpp; sourceTree = "<group>"; };
+		22099DDB19953213000961B3 /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
+		2219C2E519606ECA003FA82E /* GlutPong3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlutPong3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2219C2E819606ECA003FA82E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		2219C2EB19606ECA003FA82E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		2219C2EC19606ECA003FA82E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2219C2ED19606ECA003FA82E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2219C31D19606F38003FA82E /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
+		2219C32119606F74003FA82E /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		2219C359196073F9003FA82E /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../../../../../../../System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		2219C35A196073F9003FA82E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = ../../../../../../../../../System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		2282942D1998D90900C45ADC /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		2282942E1998D90900C45ADC /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		22E68E3D1994DA72005D9A1A /* Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		22E68E3E1994F353005D9A1A /* Ball.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ball.cpp; sourceTree = "<group>"; };
+		22E68E3F1994F353005D9A1A /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2219C2E219606ECA003FA82E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2219C35B196073F9003FA82E /* GLUT.framework in Frameworks */,
+				2219C2E919606ECA003FA82E /* Cocoa.framework in Frameworks */,
+				2219C35C196073F9003FA82E /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2219C2DC19606ECA003FA82E = {
+			isa = PBXGroup;
+			children = (
+				2219C31C19606F1E003FA82E /* Source */,
+				2219C32019606F5B003FA82E /* Config */,
+				2219C2E719606ECA003FA82E /* Frameworks */,
+				2219C2E619606ECA003FA82E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2219C2E619606ECA003FA82E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2219C2E519606ECA003FA82E /* GlutPong3D.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2219C2E719606ECA003FA82E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2219C359196073F9003FA82E /* GLUT.framework */,
+				2219C35A196073F9003FA82E /* OpenGL.framework */,
+				2219C2E819606ECA003FA82E /* Cocoa.framework */,
+				2219C2EA19606ECA003FA82E /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2219C2EA19606ECA003FA82E /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2219C2EB19606ECA003FA82E /* AppKit.framework */,
+				2219C2EC19606ECA003FA82E /* CoreData.framework */,
+				2219C2ED19606ECA003FA82E /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		2219C31C19606F1E003FA82E /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				2219C31D19606F38003FA82E /* Game.cpp */,
+				22E68E3D1994DA72005D9A1A /* Game.h */,
+				22E68E3E1994F353005D9A1A /* Ball.cpp */,
+				22E68E3F1994F353005D9A1A /* Ball.h */,
+				22099DDA19953213000961B3 /* Room.cpp */,
+				22099DDB19953213000961B3 /* Room.h */,
+				2282942D1998D90900C45ADC /* Player.cpp */,
+				2282942E1998D90900C45ADC /* Player.h */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		2219C32019606F5B003FA82E /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				2219C32119606F74003FA82E /* Config.xcconfig */,
+			);
+			path = Config;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2219C2E419606ECA003FA82E /* GlutPong3D */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2219C31619606ECA003FA82E /* Build configuration list for PBXNativeTarget "GlutPong3D" */;
+			buildPhases = (
+				2219C2E119606ECA003FA82E /* Sources */,
+				2219C2E219606ECA003FA82E /* Frameworks */,
+				2219C2E319606ECA003FA82E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GlutPong3D;
+			productName = GlutTemplate;
+			productReference = 2219C2E519606ECA003FA82E /* GlutPong3D.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2219C2DD19606ECA003FA82E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = tbrier;
+			};
+			buildConfigurationList = 2219C2E019606ECA003FA82E /* Build configuration list for PBXProject "GlutPong3D" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2219C2DC19606ECA003FA82E;
+			productRefGroup = 2219C2E619606ECA003FA82E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2219C2E419606ECA003FA82E /* GlutPong3D */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2219C2E319606ECA003FA82E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2219C2E119606ECA003FA82E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2282942F1998D90900C45ADC /* Player.cpp in Sources */,
+				22099DDC19953213000961B3 /* Room.cpp in Sources */,
+				22E68E401994F353005D9A1A /* Ball.cpp in Sources */,
+				2219C31F19606F38003FA82E /* Game.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2219C31419606ECA003FA82E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		2219C31519606ECA003FA82E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		2219C31719606ECA003FA82E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2219C32119606F74003FA82E /* Config.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		2219C31819606ECA003FA82E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2219C32119606F74003FA82E /* Config.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2219C2E019606ECA003FA82E /* Build configuration list for PBXProject "GlutPong3D" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2219C31419606ECA003FA82E /* Debug */,
+				2219C31519606ECA003FA82E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2219C31619606ECA003FA82E /* Build configuration list for PBXNativeTarget "GlutPong3D" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2219C31719606ECA003FA82E /* Debug */,
+				2219C31819606ECA003FA82E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2219C2DD19606ECA003FA82E /* Project object */;
+}
