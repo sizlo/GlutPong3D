@@ -28,7 +28,7 @@ Game::Game() :
     
     // This FOV allows us to have the ball just in frame when it is at the far
     // top/bottom/left/right of the nearest goal
-    mFOV        = 28.0f;//26.965;
+    mFOV        = 28.0f;
     mNearPlane  = 1.0f;
     mFarPlane   = MAP_LENGTH + 3.0f;
     

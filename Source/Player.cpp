@@ -37,8 +37,8 @@ Player::Player(unsigned int playerNumber)
     mMinPosition[1] = -(MAP_HEIGHT / 2.0f) + (mXYRadius + offset);
     mMinPosition[2] = -1000000.0f; // Won't be used
     
-    mPosition[0] = mMaxPosition[0];//0.0f;
-    mPosition[1] = mMaxPosition[1];//0.0f;
+    mPosition[0] = 0.0f;
+    mPosition[1] = 0.0f;
     if (mPlayerNumber == 1)
     {
         mPosition[2] = (MAP_LENGTH / 2.0f) - (mZRadius);
