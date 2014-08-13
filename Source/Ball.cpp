@@ -161,7 +161,19 @@ void Ball::Update(float deltaTimeMillis)
 void Ball::Hit(unsigned int playerNumber, M3DVector3f positionOnPad)
 {
     float theAbsZVelocity = fabsf(mVelocity[2]);
+    float thePrevZVelocity = mVelocity[2];
     
+    // If the collision was detected at a point where the ball is closer to the
+    // goal than the pad then the x and y signs need to be flipped
+    if (    (playerNumber == 1 && positionOnPad[2] > 0)
+        ||  (playerNumber == 2 && positionOnPad[2] < 0)
+        )
+    {
+        positionOnPad[0] = -positionOnPad[0];
+        positionOnPad[1] = -positionOnPad[1];
+    }
+    
+    // Change the balls z direction if necessary
     if (playerNumber == 1)
     {
         mVelocity[2] = -theAbsZVelocity;
@@ -169,5 +181,25 @@ void Ball::Hit(unsigned int playerNumber, M3DVector3f positionOnPad)
     else if (playerNumber == 2)
     {
         mVelocity[2] = theAbsZVelocity;
+    }
+    
+    // If this is the first hit registered
+    if (thePrevZVelocity != mVelocity[2])
+    {
+        // Change x and y velocity based on where it hit the pad
+        for (int dir = 0; dir < 2; dir++)
+        {
+            mVelocity[dir] += (positionOnPad[dir] / 100.0f);
+            
+            // Clamp velocity
+            if (mVelocity[dir] > mMaxVelocity[dir])
+            {
+                mVelocity[dir] = mMaxVelocity[dir];
+            }
+            else if (mVelocity[dir] < -mMaxVelocity[dir])
+            {
+                mVelocity[dir] = -mMaxVelocity[dir];
+            }
+        }
     }
 }

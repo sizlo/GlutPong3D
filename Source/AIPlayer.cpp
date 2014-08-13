@@ -14,8 +14,8 @@
 // AIPlayer constructor
 AIPlayer::AIPlayer(unsigned int playerNumber) : Player(playerNumber)
 {
-    mSpeed[0] = MAP_WIDTH / 2000.0f; // 2000 for 2000ms = 2s
-    mSpeed[1] = MAP_HEIGHT / 2000.0f; // 2000 for 2000ms = 2s
+    mSpeed[0] = MAP_WIDTH / 1500.0f; // 1500 for 1500ms = 1.5s
+    mSpeed[1] = MAP_HEIGHT / 1500.0f; // 1500 for 1500ms = 1.5s
     mSpeed[2] = 0.0f; // Pad must stay in the same z plane
 }
 
