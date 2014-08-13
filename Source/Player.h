@@ -45,7 +45,8 @@ private:
     bool            mRenderFarFace;
     bool            mRenderNearFace;
     
-    M3DVector4f     mColour;
+	M3DVector4f     mFaceColour;
+	M3DVector4f     mLineColour;
     
     unsigned int    mPlayerNumber;
     unsigned int    mScore;

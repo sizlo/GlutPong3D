@@ -18,10 +18,15 @@ Player::Player(unsigned int playerNumber)
     mXYRadius = 0.1f;
     mZRadius = mXYRadius / 2.0f;
     
-    mColour[0] = mPlayerNumber == 2 ? 1.0f : 0.0f;
-    mColour[1] = 0.0f;
-    mColour[2] = mPlayerNumber == 1 ? 1.0f : 0.0f;
-    mColour[3] = 1.0f;
+    mFaceColour[0] = mPlayerNumber == 2 ? 1.0f : 0.0f;
+    mFaceColour[1] = 0.0f;
+    mFaceColour[2] = mPlayerNumber == 1 ? 1.0f : 0.0f;
+    mFaceColour[3] = 1.0f;
+
+	mLineColour[0] = 0.0f;
+	mLineColour[1] = 0.0f;
+	mLineColour[2] = 0.0f;
+	mLineColour[3] = 1.0f;
     
     mRenderFarFace = false;
     mRenderNearFace = false;
@@ -194,20 +199,20 @@ void Player::Render(GLMatrixStack *theModelViewMatrix)
     theModelViewMatrix->Translate(mPosition[0], mPosition[1], mPosition[2]);
     
     // Draw the pad
-    theGame->UseShader(GLT_SHADER_POINT_LIGHT_DIFF, mColour);
+    theGame->UseShader(GLT_SHADER_POINT_LIGHT_DIFF, mLineColour);
     mPadBatch.Draw();
     
     // Draw the far face
     if (mRenderFarFace)
     {
-        theGame->UseShader(GLT_SHADER_DEFAULT_LIGHT, mColour);
+        theGame->UseShader(GLT_SHADER_DEFAULT_LIGHT, mFaceColour);
         mFarFaceBatch.Draw();
     }
     
     // Draw the near face
     if (mRenderNearFace)
     {
-        theGame->UseShader(GLT_SHADER_DEFAULT_LIGHT, mColour);
+        theGame->UseShader(GLT_SHADER_DEFAULT_LIGHT, mFaceColour);
         mNearFaceBatch.Draw();
     }
     
@@ -239,8 +244,8 @@ void Player::UpdatePosition(float deltaTimeMillis)
     theMousePosProp[1] = -theMousePosProp[1];
     
     // Use this mouse position to set the player position
-    mPosition[0] = theMousePosProp[0] * (MAP_WIDTH / 2.0);
-    mPosition[1] = theMousePosProp[1] * (MAP_HEIGHT / 2.0);
+    mPosition[0] = theMousePosProp[0] * (MAP_WIDTH / 2.0f);
+    mPosition[1] = theMousePosProp[1] * (MAP_HEIGHT / 2.0f);
     
     // Clamp position
     for (int dir = 0; dir < 2; dir++)
@@ -344,5 +349,5 @@ void Player::Score()
     mScore++;
     
     // Set the clear colour to our colour so the background will flash on a goal
-    glClearColor(mColour[0], mColour[1], mColour[2], mColour[3]);
+    glClearColor(mFaceColour[0], mFaceColour[1], mFaceColour[2], mFaceColour[3]);
 }

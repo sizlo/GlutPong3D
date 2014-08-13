@@ -6,10 +6,22 @@
 //  Copyright (c) 2014 tbrier. All rights reserved.
 //
 
+// Disable warnings for sprintf not being safe in MSVC
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif
+
 #include <GLTools.h>
 #include <GLFrustum.h>
 
+#include <time.h>
+
+#ifdef __APPLE__
 #include <glut/glut.h>
+#else
+#define FREEGLUT_STATIC
+#include <GL/glut.h>
+#endif
 
 #include "Game.h"
 
@@ -172,9 +184,9 @@ void Game::Render(void)
     if (!mIsPaused)
     {
         mBall->Update(deltaTimeMillis);
+		mPlayer1->Update(deltaTimeMillis);
+		mPlayer2->Update(deltaTimeMillis);
     }
-    mPlayer1->Update(deltaTimeMillis);
-    mPlayer2->Update(deltaTimeMillis);
     
     
 	// Clear the window with current clearing color
@@ -340,7 +352,7 @@ void Game::UseShader(GLT_STOCK_SHADER theShader, M3DVector4f theColour)
                                           mTransformPipeline.GetProjectionMatrix(),
                                           theColour);
         
-        defaut: break; // Do nothing
+        default: break; // Do nothing
     }
 }
 
@@ -350,7 +362,7 @@ void Game::UseShader(GLT_STOCK_SHADER theShader, M3DVector4f theColour)
 int main(int argc, char* argv[])
 {
     bool player1IsAI = false;
-    bool player2IsAI = false;
+    bool player2IsAI = true;
     
     if (argc > 1)
     {
