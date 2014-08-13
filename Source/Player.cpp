@@ -217,8 +217,8 @@ void Player::Render(GLMatrixStack *theModelViewMatrix)
 
 
 //==============================================================================
-// Perform any game logic for the player
-void Player::Update(float deltaTimeMillis)
+// Update position based on mouse position
+void Player::UpdatePosition(float deltaTimeMillis)
 {
     Game *theGame = Game::GetGame();
     
@@ -254,7 +254,17 @@ void Player::Update(float deltaTimeMillis)
             mPosition[dir] = mMinPosition[dir];
         }
     }
+}
+
+
+//==============================================================================
+// Perform any game logic for the player
+void Player::Update(float deltaTimeMillis)
+{
+    // Update the position of the pad
+    UpdatePosition(deltaTimeMillis);
     
+    Game *theGame = Game::GetGame();
     
     // Check to see if we're colliding with the ball
     float *theBallPos = theGame->GetBall()->GetPosition();

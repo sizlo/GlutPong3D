@@ -16,9 +16,7 @@
 
 //==============================================================================
 // Game constructor
-Game::Game() :
-    mPlayer1(1),
-    mPlayer2(2)
+Game::Game()
 {
     mWindowSize[0]  = 600;
     mWindowSize[1]  = 600;
@@ -45,6 +43,11 @@ Game::Game() :
 Game::~Game()
 {
     free(mWindowTitle);
+    
+    delete mBall;
+    delete mRoom;
+    delete mPlayer1;
+    delete mPlayer2;
 }
 
 
@@ -160,18 +163,18 @@ void Game::Render(void)
     sprintf(theTitle, "%s | %d fps | P1: %d | P2: %d%s",
             mWindowTitle,
             fps,
-            mPlayer1.GetScore(),
-            mPlayer2.GetScore(),
+            mPlayer1->GetScore(),
+            mPlayer2->GetScore(),
             mIsPaused ? " | Paused" : "");
     glutSetWindowTitle(theTitle);
     
     // Update any relavant game objects
     if (!mIsPaused)
     {
-        mBall.Update(deltaTimeMillis);
+        mBall->Update(deltaTimeMillis);
     }
-    mPlayer1.Update(deltaTimeMillis);
-    mPlayer2.Update(deltaTimeMillis);
+    mPlayer1->Update(deltaTimeMillis);
+    mPlayer2->Update(deltaTimeMillis);
     
     
 	// Clear the window with current clearing color
@@ -190,17 +193,17 @@ void Game::Render(void)
     mModelViewMatrix.PushMatrix(theCameraMatrix);
     
     // Update the light z pos to just in front of the ball
-    mLightPos[2] = mBall.GetPosition()[2] + 1.0f;
+    mLightPos[2] = mBall->GetPosition()[2] + 1.0f;
     mLightPos[3] = 1.0f;
     
     // Transform the light position into eye coordinates
     m3dTransformVector4(mLightEyePos, mLightPos, theCameraMatrix);
     
     // Draw all game objects
-    mBall.Render(&mModelViewMatrix);
-    mRoom.Render(&mModelViewMatrix);
-    mPlayer1.Render(&mModelViewMatrix);
-    mPlayer2.Render(&mModelViewMatrix);
+    mBall->Render(&mModelViewMatrix);
+    mRoom->Render(&mModelViewMatrix);
+    mPlayer1->Render(&mModelViewMatrix);
+    mPlayer2->Render(&mModelViewMatrix);
     
     // Pop camera matrix
     mModelViewMatrix.PopMatrix();
@@ -217,17 +220,37 @@ void Game::Render(void)
 
 //==============================================================================
 // Sets up the objects needed for the game
-void Game::Init(void)
+void Game::Init(bool player1IsAI, bool player2IsAI)
 {
     // Initialise the random seed
     srand(time(NULL));
     
     mCameraFrame.SetOrigin(0.0f, 0.0f, (MAP_LENGTH / 2.0f)+2.0f);
     
-    mBall.Init();
-    mRoom.Init();
-    mPlayer1.Init();
-    mPlayer2.Init();
+    mBall = new Ball();
+    mRoom = new Room();
+    
+    if (player1IsAI)
+    {
+        mPlayer1 = new AIPlayer(1);
+    }
+    else
+    {
+        mPlayer1 = new Player(1);
+    }
+    if (player2IsAI)
+    {
+        mPlayer2 = new AIPlayer(2);
+    }
+    else
+    {
+        mPlayer2 = new Player(2);
+    }
+    
+    mBall->Init();
+    mRoom->Init();
+    mPlayer1->Init();
+    mPlayer2->Init();
     
     ResetGame();
 }
@@ -239,11 +262,11 @@ void Game::ResetGame(void)
 {
     mIsPaused = true;
     
-    mBall.Center();
-    mBall.GiveStartingVelocity();
+    mBall->Center();
+    mBall->GiveStartingVelocity();
     
-    mPlayer1.Reset();
-    mPlayer2.Reset();
+    mPlayer1->Reset();
+    mPlayer2->Reset();
     
     mClearColourResetTimer.Reset();
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
@@ -286,8 +309,8 @@ void Game::Score(unsigned int player)
 {
     switch (player)
     {
-        case 1:     mPlayer1.Score();    break;
-        case 2:     mPlayer2.Score();    break;
+        case 1:     mPlayer1->Score();    break;
+        case 2:     mPlayer2->Score();    break;
         default:    break; // Do nothing
     }
     
@@ -326,13 +349,27 @@ void Game::UseShader(GLT_STOCK_SHADER theShader, M3DVector4f theColour)
 // Main entry point for GLUT based programs
 int main(int argc, char* argv[])
 {
+    bool player1IsAI = false;
+    bool player2IsAI = false;
+    
+    if (argc > 1)
+    {
+        player1IsAI = strcmp(argv[1], "true") == 0;
+    }
+    if (argc > 2)
+    {
+        player2IsAI = strcmp(argv[2], "true") == 0;
+    }
+    
     Game *theGame = Game::GetGame();
     
 	theGame->SetupGL(argc, argv);
     
-    theGame->Init();
+    theGame->Init(player1IsAI, player2IsAI);
     
     theGame->Run();
+    
+    delete theGame;
     
 	return 0;
 }

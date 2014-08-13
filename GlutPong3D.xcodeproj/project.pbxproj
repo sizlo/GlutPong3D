@@ -13,6 +13,7 @@
 		2219C35B196073F9003FA82E /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2219C359196073F9003FA82E /* GLUT.framework */; };
 		2219C35C196073F9003FA82E /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2219C35A196073F9003FA82E /* OpenGL.framework */; };
 		2282942F1998D90900C45ADC /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2282942D1998D90900C45ADC /* Player.cpp */; };
+		22D8589D199B7EA6005DA3A4 /* AIPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D8589B199B7EA6005DA3A4 /* AIPlayer.cpp */; };
 		22E68E401994F353005D9A1A /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22E68E3E1994F353005D9A1A /* Ball.cpp */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,8 @@
 		2219C35A196073F9003FA82E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = ../../../../../../../../../System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		2282942D1998D90900C45ADC /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		2282942E1998D90900C45ADC /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		22D8589B199B7EA6005DA3A4 /* AIPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AIPlayer.cpp; sourceTree = "<group>"; };
+		22D8589C199B7EA6005DA3A4 /* AIPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIPlayer.h; sourceTree = "<group>"; };
 		22E68E3D1994DA72005D9A1A /* Game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		22E68E3E1994F353005D9A1A /* Ball.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ball.cpp; sourceTree = "<group>"; };
 		22E68E3F1994F353005D9A1A /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
@@ -99,6 +102,8 @@
 				22099DDB19953213000961B3 /* Room.h */,
 				2282942D1998D90900C45ADC /* Player.cpp */,
 				2282942E1998D90900C45ADC /* Player.h */,
+				22D8589B199B7EA6005DA3A4 /* AIPlayer.cpp */,
+				22D8589C199B7EA6005DA3A4 /* AIPlayer.h */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 			files = (
 				2282942F1998D90900C45ADC /* Player.cpp in Sources */,
 				22099DDC19953213000961B3 /* Room.cpp in Sources */,
+				22D8589D199B7EA6005DA3A4 /* AIPlayer.cpp in Sources */,
 				22E68E401994F353005D9A1A /* Ball.cpp in Sources */,
 				2219C31F19606F38003FA82E /* Game.cpp in Sources */,
 			);

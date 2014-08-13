@@ -20,6 +20,7 @@ public:
     
     void Init();
     void Render(GLMatrixStack *theModelViewMatrix);
+    virtual void UpdatePosition(float deltaTimeMillis);
     void Update(float deltaTimeMillis);
     void Reset();
     void Score();
@@ -29,11 +30,12 @@ public:
         return mScore;
     }
     
-private:
+protected:
     M3DVector3f     mPosition;
     M3DVector3f     mMaxPosition;
     M3DVector3f     mMinPosition;
     
+private:
     GLBatch         mPadBatch;
     GLTriangleBatch mFarFaceBatch;
     GLTriangleBatch mNearFaceBatch;

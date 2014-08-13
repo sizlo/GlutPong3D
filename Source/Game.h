@@ -18,6 +18,7 @@
 #include "Ball.h"
 #include "Room.h"
 #include "Player.h"
+#include "AIPlayer.h"
 
 
 #define MAP_LENGTH 5.0f
@@ -33,7 +34,7 @@ public:
     void ChangeSize(int width, int height);
     void SetupGL(int argc, char* argv[]);
     void Render();
-    void Init();
+    void Init(bool player1IsAI, bool player2IsAI);
     void ResetGame();
     void Run();
     void HandleKeypress(unsigned char key, int x, int y);
@@ -43,7 +44,7 @@ public:
     
     Ball * GetBall()
     {
-        return &mBall;
+        return mBall;
     }
     
     int * GetMousePos()
@@ -82,10 +83,10 @@ private:
     
     int                 mMousePos[2];
     
-    Ball                mBall;
-    Room                mRoom;
-    Player              mPlayer1;
-    Player              mPlayer2;
+    Ball                *mBall;
+    Room                *mRoom;
+    Player              *mPlayer1;
+    Player              *mPlayer2;
     
     bool                mIsPaused;
     unsigned int        mPlayer1Score;
