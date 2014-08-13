@@ -364,14 +364,25 @@ int main(int argc, char* argv[])
     bool player1IsAI = false;
     bool player2IsAI = true;
     
-    if (argc > 1)
-    {
-        player1IsAI = strcmp(argv[1], "true") == 0;
-    }
-    if (argc > 2)
-    {
-        player2IsAI = strcmp(argv[2], "true") == 0;
-    }
+	for (int i = 1; i < argc; i++)
+	{
+		if (strcmp(argv[i], "--p1AI") == 0)
+		{
+			player1IsAI = true;
+		}
+		else if (strcmp(argv[i], "--p2AI") == 0)
+		{
+			player2IsAI = true;
+		}
+		else if (strcmp(argv[i], "--p1Player") == 0)
+		{
+			player1IsAI = false;
+		}
+		else if (strcmp(argv[i], "--p2Player") == 0)
+		{
+			player2IsAI = false;
+		}
+	}
     
     Game *theGame = Game::GetGame();
     
