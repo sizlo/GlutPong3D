@@ -11,6 +11,7 @@
 
 #include <GLTools.h>
 #include <GLMatrixStack.h>
+#include <StopWatch.h>
 
 class Player
 {
@@ -50,6 +51,8 @@ private:
     
     unsigned int    mPlayerNumber;
     unsigned int    mScore;
+
+	CStopWatch      mFaceRenderResetTimer;
 };
 
 #endif /* defined(__GlutPong3D__Player__) */

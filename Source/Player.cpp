@@ -325,12 +325,16 @@ void Player::Update(float deltaTimeMillis)
         {
             mRenderNearFace = true;
         }
+
+		// Begin counting for when we want to stop rendering the face
+		mFaceRenderResetTimer.Reset();
     }
-    else
-    {
-        mRenderNearFace = false;
-        mRenderFarFace = false;
-    }
+
+	if (mFaceRenderResetTimer.GetElapsedSeconds() >= 0.05)
+	{
+		mRenderFarFace = false;
+		mRenderNearFace = false;
+	}
 }
 
 
@@ -339,6 +343,8 @@ void Player::Update(float deltaTimeMillis)
 void Player::Reset()
 {
     mScore = 0;
+
+	mFaceRenderResetTimer.Reset();
 }
 
 
