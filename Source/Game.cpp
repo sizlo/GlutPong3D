@@ -48,6 +48,8 @@ Game::Game()
     mLightPos[3] = 1.0f;
     
     mIsPaused = true;
+	mUseVsync = true;
+	mMaxFPS = 60;
 }
 
 //==============================================================================
@@ -172,9 +174,10 @@ void Game::Render(void)
     
     // Update the title with the current FPS and score
     static char theTitle[64];
-    sprintf(theTitle, "%s | %d fps | P1: %d | P2: %d%s",
+    sprintf(theTitle, "%s | %d fps | %3.2f ms | P1: %d | P2: %d%s",
             mWindowTitle,
             fps,
+			deltaTimeMillis,
             mPlayer1->GetScore(),
             mPlayer2->GetScore(),
             mIsPaused ? " | Paused" : "");
@@ -224,6 +227,23 @@ void Game::Render(void)
     
 	// Perform the buffer swap to display back buffer
 	glutSwapBuffers();
+
+	// Wait for the next frame
+	if (mUseVsync)
+	{
+		float minDeltaTimeMillis = 1000.0f / mMaxFPS;
+		float timeToWait = minDeltaTimeMillis - deltaTimeMillis;
+
+		// Sleep for the desired milliseconds
+		if (timeToWait > 0.0f)
+		{
+#ifdef __APPLE__
+
+#else
+			Sleep(timeToWait);
+#endif
+		}
+	}
     
     // Request the next frame
     glutPostRedisplay();
@@ -235,7 +255,7 @@ void Game::Render(void)
 void Game::Init(bool player1IsAI, bool player2IsAI)
 {
     // Initialise the random seed
-    srand(time(NULL));
+    srand((unsigned int) time(NULL));
     
     mCameraFrame.SetOrigin(0.0f, 0.0f, (MAP_LENGTH / 2.0f)+2.0f);
     
@@ -301,6 +321,7 @@ void Game::HandleKeypress(unsigned char key, int x, int y)
     {
         case 'p':   mIsPaused = !mIsPaused; break;
         case 'r':   ResetGame();            break;
+		case 'v':	mUseVsync = !mUseVsync;	break;
         default:    break; // Do nothing
     }
 }
