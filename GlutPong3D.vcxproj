@@ -41,7 +41,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\Tim\Documents\Projects\GlutPong3D\Libraries\GLTools\include;C:\Users\Tim\Documents\Projects\GlutPong3D\Libraries\freeglut-2.6.0\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\Libraries\GLTools\include;$(SolutionDir)\Libraries\freeglut-2.6.0\include;$(IncludePath)</IncludePath>
     <OutDir>$(SolutionDir)\Build\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)\Build\Intermediates\</IntDir>
   </PropertyGroup>
