@@ -17,8 +17,6 @@
 #include <time.h>
 
 #ifdef __APPLE__
-#include <unistd.h>
-
 #include <glut/glut.h>
 #else
 #define FREEGLUT_STATIC
