@@ -89,8 +89,6 @@ private:
     Player              *mPlayer2;
     
     bool                mIsPaused;
-	bool				mUseVsync;
-	unsigned int		mMaxFPS;
     unsigned int        mPlayer1Score;
     unsigned int        mPlayer2Score;
     
